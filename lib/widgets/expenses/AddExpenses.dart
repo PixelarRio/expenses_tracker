@@ -22,7 +22,7 @@ class _AddExpenses extends State<AddExpenses>{
       ),
 
       body: Column(
-        children: [
+        children: const[
           TextField(decoration: InputDecoration(
 
           ),)
