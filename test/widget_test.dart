@@ -10,10 +10,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:expenses_tracker/main.dart';
 
+import '../lib/widgets/expenses/Expenses.dart';
+
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+      await tester.pumpWidget(Expeneses());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
