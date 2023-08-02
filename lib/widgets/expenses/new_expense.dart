@@ -50,12 +50,12 @@ class _NewExpenseState extends State<NewExpense>{
 
     if(_titleController.text.trim().isEmpty || amountIsInvalid || _selectedDate == null){
       showDialog(context: context, builder: (ctx)=>AlertDialog(
-        title: Text("Invalid input"),
-        content: Text("Please make sure a valid title , amount , date and category was entered."),
+        title: const Text("Invalid input"),
+        content: const Text("Please make sure a valid title , amount , date and category was entered."),
       actions: [
         TextButton(onPressed: (){
           Navigator.pop(ctx);
-        }, child: Text("okay"))
+        }, child: const Text("okay"))
       ],
       )
       );
@@ -69,6 +69,8 @@ class _NewExpenseState extends State<NewExpense>{
         category: _selectedCategory,
     )
     );
+
+    Navigator.pop(context);
   }
   @override
   void dispose() {
@@ -78,7 +80,7 @@ class _NewExpenseState extends State<NewExpense>{
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding:EdgeInsets.all(16),
+    return Padding(padding:EdgeInsets.fromLTRB(16,48,16,16),
     child:Column(
       children: [
          TextField(
