@@ -55,7 +55,7 @@ void main(){
         )
 
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       home:const Expeneses() ,
 

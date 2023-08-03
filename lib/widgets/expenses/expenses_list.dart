@@ -19,20 +19,21 @@ class ExpensesList extends StatelessWidget{
         key: ValueKey(expenses[index]),
         background: Container(
 
-          child: Column(
+          color: Theme.of(context).colorScheme.error.withOpacity(1.0),
+          margin:  EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal),
+
+          child:  Column(
             crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
           Padding(
-            padding: const EdgeInsets.only(right: 30),
+            padding: EdgeInsets.only(right: 30),
             child: Icon(Icons.delete,color: Colors.white),
           )
           ],
-            
-            
+
+
           ),
-          color: Theme.of(context).colorScheme.error.withOpacity(0.75),
-          margin:  EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal),
         ),
         onDismissed: (direction) => onRemoveExpense(expenses[index]) ,
         child: ExpenseItem(expenses[index] ),
