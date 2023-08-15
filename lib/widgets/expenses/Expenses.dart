@@ -20,14 +20,13 @@ class Expeneses extends StatefulWidget{
 
 class _ExpensesState extends State<Expeneses>{
   final List<Expense> _registeredExpenses = [
-    Expense(title: "FlutterCourse", amount: 19.99 , date: DateTime.now(), category: Category.work),
-    Expense(title: "Movie", amount: 50.00 , date: DateTime.now(), category: Category.leisure),
-
 
   ];
 
 void _openAddExpenseOverlay(){
+
   showModalBottomSheet(context: context,
+      useSafeArea: true,
       isScrollControlled: true,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense));
 
@@ -44,6 +43,8 @@ void _addExpense(Expense expense){
 }
   @override
   Widget build( context) {
+
+  final width = MediaQuery.of(context).size.width;
 
   Widget mainContent = const Center(
     child: Text("No Expenses Found. Start Adding some!"),
@@ -65,13 +66,21 @@ void _addExpense(Expense expense){
           ))
         ],
       ),
-      body: Column(
+      body: width < 600 ? Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 30,),
          Chart(expenses: _registeredExpenses),
           const SizedBox(height: 30,),
           Expanded(child : mainContent),
+        ],
+      ): Row(
+        children: [
+          const SizedBox(height: 30,),
+          Expanded(child: Chart(expenses: _registeredExpenses)),
+          const SizedBox(height: 30,),
+          Expanded(child : mainContent),
+          
         ],
       ),
     );
